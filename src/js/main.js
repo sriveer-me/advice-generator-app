@@ -4,10 +4,16 @@ let adviceText = document.querySelector('.body-text');
 
 async function refreshQuote()
 {
-    let quote = await axios.get("https://api.adviceslip.com/advice");
-    let {id,advice} = quote.data.slip;
-    adviceNumber.innerHTML = `${id}`;
-    adviceText.innerHTML = `${advice}`;
+    try{
+        let quote = await axios.get(`https://api.adviceslip.com/advice?timestamp=${new Date().getTime()}`);
+        
+        let {id,advice} = quote.data.slip;
+        adviceNumber.innerHTML = `${id}`;
+        adviceText.innerHTML = `${advice}`;
+    }
+    catch(error){
+        console.log(error);
+    }
 }
 
 refreshQuote();
@@ -15,6 +21,4 @@ refreshQuote();
 randomQuoteButton.addEventListener("click",function(e){
     e.preventDefault();
     refreshQuote();
-    // window.alert('hi');
-    // console.log('refreshed quote');
 });
