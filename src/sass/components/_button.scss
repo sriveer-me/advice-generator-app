@@ -1,0 +1,19 @@
+a:link.btn,
+a:visited.btn{
+    display: flex;
+    text-decoration: none;
+    color: $color-white;
+    background-color: $color-primary;
+    border-radius: 100%;
+    padding: 1.8rem;
+
+    position: absolute;
+    left: 50%;
+    bottom: -20%;
+    transform: translate(-50%,-50%);
+}
+
+a:hover.btn{
+    box-shadow: 0rem 0rem 2rem 1rem $color-primary;
+    // background-color: lighten($color-primary,10%);
+}

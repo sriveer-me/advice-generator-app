@@ -1,0 +1,23 @@
+main{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    row-gap: 2.4rem;
+
+    padding: 5rem;
+    padding-bottom: 7rem;
+    background-color: $color-black-2;
+    border-radius: 1rem;
+    
+   .divider-graphic{
+       height: 2rem;
+       background-image: url('../img/pattern-divider-desktop.svg');
+       background-position: center;
+       background-size: contain;
+       background-repeat: no-repeat;
+   }
+
+   @media screen and (max-width: 480px) {
+        padding: 5rem 2rem;
+    }
+}
