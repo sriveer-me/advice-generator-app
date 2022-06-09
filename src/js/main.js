@@ -5,9 +5,10 @@ let adviceText = document.querySelector('.body-text');
 async function refreshQuote()
 {
     try{
-        let quote = await axios.get(`https://api.adviceslip.com/advice?timestamp=${new Date().getTime()}`);
+        let response = await fetch('https://api.adviceslip.com/advice', { cache: 'no-cache' });
+        let slip = (await response.json()).slip;
         
-        let {id,advice} = quote.data.slip;
+        let {id,advice} = slip;
         adviceNumber.innerHTML = `${id}`;
         adviceText.innerHTML = `${advice}`;
     }
